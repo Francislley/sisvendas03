@@ -55,3 +55,11 @@ def validarlogin(request):
 			return render(request, 'login.html', {'form': form})
 	else:
 		return HttpResponseRedirect('/login/')
+
+def excluir(request, pk=0):
+    try:
+        pessoa = Pessoa.objects.get(pk=pk)
+        pessoa.delete()
+        return HttpResponseRedirect('/ConsultaUsuarios/')
+    except:
+        return HttpResponseRedirect('/ConsultaUsuarios/')
