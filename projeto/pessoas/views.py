@@ -11,3 +11,8 @@ def index(request):
 def cadastro(request):
 	form = PessoaForm()
 	return render(request, 'cadastro.html', {'form':form})
+
+@login_required()
+def ConsultaUsuarios(request):
+	pessoas = Pessoa.objects.all()
+	return render(request, 'usuarios.html', {'pessoas':pessoas})
