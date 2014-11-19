@@ -27,3 +27,8 @@ def validar(request):
 
 			return render(request, 'validar.html', {'form':form })
 
+
+def login(request):
+    form = LoginForm()
+    return render(request, 'login.html',{'form':form});
+
