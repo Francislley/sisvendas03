@@ -1,0 +1,26 @@
+{% extends 'template.html' %}
+
+{% block conteudo %}
+	<h3>Usuarios Cadastrados</h3>
+	<br>
+	<table class="table" >
+		<tr>
+			<th>Nome</th>
+			<th>Email</th>
+			<th>Data Nascimento</th>
+			<th>Ativo</th>
+
+			<th>Ações</th>
+		</tr>
+		{%  for pessoa in pessoas %}
+			<tr>
+				<td>{{ pessoa.nome }}</td>
+				<td>{{ pessoa.email }}</td>
+				<td>{{ pessoa.data_nascimento }}</td>
+				<td>{{ pessoa.ativo }}</td>
+				<td><a class="btn btn-primary" alt="Excluir" href="/excluir/{{ pessoa.id }}/">X</a></td>
+			</tr>
+		{% endfor %}
+	</table>
+<br/><br/>
+{% endblock conteudo %}
