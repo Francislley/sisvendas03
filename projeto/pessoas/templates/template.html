@@ -1,0 +1,30 @@
+{% load staticfiles %}
+
+<link href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <ul class="nav navbar-nav">
+    <li>
+      <a href="/cadastro/">Cadastrar Promotor</a>
+    </li>
+    <li>
+      <a href="/ConsultaUsuarios/">Usuários</a>
+    </li>
+  </ul>
+  <ul class="nav navbar-nav navbar-right">
+    {% if user.is_authenticated %}
+	    <li><a href="/logoff/" >{{ user.username }} - Sair</a></li>
+	{% else %}
+	    <li><a href="/login/" >Login</a></li>
+	{% endif %}
+	</ul>
+    </div>
+  </div>
+</nav>
+
+
+
+{% block conteudo %}
+{% endblock conteudo %}
