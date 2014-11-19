@@ -6,3 +6,7 @@ class Pessoa (models.Model):
 	email = models.EmailField()
 	ativo = models.BooleanField(default=True)
 	data_nascimento = models.DateField()
+
+
+class Login(AbstractUser):
+	endereco = models.CharField(max_length=100, blank=True, null=True)
