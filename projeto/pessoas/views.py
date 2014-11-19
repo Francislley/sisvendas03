@@ -16,3 +16,14 @@ def cadastro(request):
 def ConsultaUsuarios(request):
 	pessoas = Pessoa.objects.all()
 	return render(request, 'usuarios.html', {'pessoas':pessoas})
+
+def validar(request):
+	if request.method == 'POST':
+		form = PessoaForm(request.POST)
+
+		if form.is_valid():
+			pessoa = Pessoa(**form.cleaned_data)
+			pessoa.save()
+
+			return render(request, 'validar.html', {'form':form })
+
