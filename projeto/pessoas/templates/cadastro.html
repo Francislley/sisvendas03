@@ -1,0 +1,10 @@
+{% extends 'template.html' %}
+
+
+{% block conteudo %}
+<form action="/validar/" method="POST">
+	{%csrf_token%}
+	{{ form.as_p }}
+	<input class="btn btn-primary" type="submit" value="Enviar" />
+</form>
+{% endblock conteudo %}
