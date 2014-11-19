@@ -6,3 +6,8 @@ from django.contrib.auth.decorators import login_required
 
 def index(request):
 	return render(request, 'index.html')
+
+@login_required()
+def cadastro(request):
+	form = PessoaForm()
+	return render(request, 'cadastro.html', {'form':form})
