@@ -32,3 +32,7 @@ def login(request):
     form = LoginForm()
     return render(request, 'login.html',{'form':form});
 
+def logoff(request):
+	logout(request)
+	return HttpResponseRedirect('/')
+
